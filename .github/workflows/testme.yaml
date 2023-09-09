@@ -1,0 +1,19 @@
+name: 'test manual action'
+
+on:
+  workflow_dispatch:
+    input:
+      potato:
+        description: 'potato?'
+        required: true
+
+jobs:
+  echo-input:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Echo input to console
+      run: echo "The value of potato is: ${{ github.event.inputs.potato }}"
+  
