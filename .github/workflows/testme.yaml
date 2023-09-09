@@ -2,7 +2,7 @@ name: 'test manual action'
 
 on:
   workflow_dispatch:
-    input:
+    inputs:
       potato:
         description: 'potato?'
         required: true
@@ -15,5 +15,6 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Echo input to console
-      run: echo "The value of potato is: ${{ github.event.inputs.potato }}"
+      run: |
+        echo "The value of potato is: ${{ github.event.inputs.potato }}"
   
